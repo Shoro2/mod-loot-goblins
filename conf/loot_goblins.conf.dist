@@ -1,0 +1,80 @@
+#
+# Loot Goblins module configuration
+#
+# Copy this file to loot_goblins.conf (drop the .dist) in your worldserver
+# config directory, or edit in place. Values shown are the defaults.
+#
+
+[worldserver]
+
+########################################
+# General
+########################################
+
+# Master switch for the module.
+LootGoblins.Enable = 1
+
+# creature_template entry of the Loot Goblin. Must match the SQL data.
+LootGoblins.GoblinEntry = 400000
+
+# How long a living goblin survives before its spawn debuff expires and it
+# despawns (milliseconds).
+LootGoblins.DebuffDurationMs = 10000
+
+# How long a killed goblin's corpse lingers before it is removed (ms). This is
+# the window players have to loot it.
+LootGoblins.CorpseDespawnMs = 30000
+
+# Movement speed multiplier. The goblin wanders fast and erratically.
+LootGoblins.MoveSpeedRate = 2.5
+
+# Radius (yards) the goblin wanders around its spawn point. Pathfinding aware.
+LootGoblins.WanderRadius = 8.0
+
+########################################
+# Splitting
+########################################
+
+# Base chance (percent) that a killed goblin splits into two fresh goblins
+# instead of dropping loot. The two children can split again, so a full chain
+# is 1 -> 2 -> 4 with only the non-splitting "leaves" being lootable.
+LootGoblins.SplitChance = 5.0
+
+# Split talent: an admin-granted, stackable aura on the killer that adds flat
+# percentage points to the split chance per stack (e.g. base 5 + 5 * 6 = 35%).
+LootGoblins.SplitTalent.SpellId = 700003
+LootGoblins.SplitTalent.BonusPerStack = 5.0
+LootGoblins.SplitTalent.MaxStacks = 6
+
+########################################
+# Spawn talent
+########################################
+
+# Spawn talent: an admin-granted, stackable aura on the killer that multiplies
+# the per-kill spawn chance: chance * (1 + BonusPerStack/100 * stacks).
+# With 50 per stack and 6 stacks the chance is multiplied by 4.
+LootGoblins.SpawnTalent.SpellId = 700002
+LootGoblins.SpawnTalent.BonusPerStack = 50.0
+LootGoblins.SpawnTalent.MaxStacks = 6
+
+########################################
+# Per-kill spawn chances (percent)
+#
+# Defaults are 1/10 of the "full" tuning so spawns are rare until the spawn
+# talent ramps the chance up.
+########################################
+
+# Open world
+LootGoblins.Chance.World.Normal = 0.01
+LootGoblins.Chance.World.Elite = 0.05
+LootGoblins.Chance.World.Boss = 1.0
+
+# 5-man dungeons
+LootGoblins.Chance.Dungeon.Normal = 0.05
+LootGoblins.Chance.Dungeon.Elite = 0.1
+LootGoblins.Chance.Dungeon.Boss = 0.5
+
+# Raids
+LootGoblins.Chance.Raid.Normal = 0.1
+LootGoblins.Chance.Raid.Elite = 0.2
+LootGoblins.Chance.Raid.Boss = 1.0
