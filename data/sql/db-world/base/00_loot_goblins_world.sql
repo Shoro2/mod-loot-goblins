@@ -12,10 +12,10 @@
 DELETE FROM `creature_template` WHERE `entry` = 400000;
 INSERT INTO `creature_template`
 (`entry`,`name`,`subname`,`minlevel`,`maxlevel`,`exp`,`faction`,`npcflag`,
- `scale`,`rank`,`unit_class`,`type`,`lootid`,`mingold`,`maxgold`,
+ `rank`,`unit_class`,`type`,`lootid`,`mingold`,`maxgold`,
  `MovementType`,`HealthModifier`,`RegenHealth`,`flags_extra`,`ScriptName`) VALUES
 (400000,'Loot Goblin','Treasure Hoarder',80,80,2,7,0,
- 1,0,1,7,400000,5000,25000,
+ 0,1,7,400000,5000,25000,
  0,0.2,0,0,'npc_loot_goblin');
 
 -- ---------------------------------------------------------------------------
