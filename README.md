@@ -27,7 +27,10 @@ few seconds, can split into more goblins when killed, and drops loot.
 
 ## Requirements
 
-A working AzerothCore (this fork) server. The module ships its own custom
+A working AzerothCore WotLK server. The module uses only standard core script
+hooks (creature, player, world, spell/aura scripts) and needs no other module;
+it was developed on the [Shoro2/azerothcore-wotlk](https://github.com/Shoro2/azerothcore-wotlk)
+fork and has not been built against vanilla upstream. It ships its own custom
 spells via the `spell_dbc` world table, so no client `Spell.dbc` edits are
 required for the mechanics to work.
 
@@ -36,22 +39,22 @@ required for the mechanics to work.
 ```bash
 # from your AzerothCore source root
 cd modules
-git clone <this-repo> mod-loot-goblins
+git clone https://github.com/Shoro2/mod-loot-goblins.git
 cd ..
 # rebuild
 cd build && cmake .. -DSCRIPTS=static -DMODULES=static && make -j
 ```
 
-Import the SQL in `data/sql/db-world/base/` into your **world** database
-(`acore_world`) — either via the DB updater or manually:
+The SQL in `data/sql/db-world/base/` is applied to the **world** database by
+the AzerothCore DB updater on the next worldserver start. To apply it manually:
 
 ```bash
 mysql acore_world < modules/mod-loot-goblins/data/sql/db-world/base/00_loot_goblins_world.sql
 mysql acore_world < modules/mod-loot-goblins/data/sql/db-world/base/01_loot_goblins_spell_dbc.sql
 ```
 
-Copy `conf/loot_goblins.conf.dist` to your worldserver config directory as
-`loot_goblins.conf` (or edit in place) and restart the worldserver.
+Copy `conf/loot_goblins.conf.dist` to your `configs/modules/` directory as
+`loot_goblins.conf` and restart the worldserver.
 
 ## Configuration
 
@@ -101,7 +104,3 @@ your client `Spell.dbc` in the fork's custom ID range and point the
 
 The creature display (DisplayID `7107`) and the example loot in
 `00_loot_goblins_world.sql` are cosmetic — change them to taste.
-
-## License
-
-GPL v2, matching AzerothCore.

@@ -1,5 +1,11 @@
 # mod-loot-goblins
 
+> **Internal docs live in the vault, not here** (rule since 2026-10-18: this public repo keeps only
+> README.md with the general info and installation, this CLAUDE.md, the license and the code).
+> Index, data structure, functions, log and todo: share-public `docs/World of Warcraft/module-repos/mod-loot-goblins/`
+> (local checkout `C:\Users\Anwender\Documents\GitHub\share-public`). Update them there,
+> in a vault worktree, in the same session as the code change.
+
 A Diablo-style **Loot Goblin** for Forgotten Land: when a player kills a creature, a fast, harmless goblin
 may appear at the corpse and flee for 10 seconds. Killed in time, it either drops gold and items or splits
 into two fresh goblins, which may split again (the code sets no depth limit; only goblins that do not
@@ -48,7 +54,7 @@ spell import uses none of 700001-700003 (vault `coa-classes/program-records/m1a-
 2. An in-game or bot check of the spawn roll, the split chain and the talents (todo, medium).
 3. (suggestion) Replace the README's example loot with FL loot, decided by the operator (todo, low).
 
-Open points in full: [todo.md](todo.md).
+Open points in full: [todo.md](https://github.com/Shoro2/share-public/blob/main/docs/World%20of%20Warcraft/module-repos/mod-loot-goblins/todo.md).
 
 ## Working here
 
@@ -66,4 +72,5 @@ Open points in full: [todo.md](todo.md).
 - Vault (`share-public/docs/World of Warcraft/`): `forgotten-land/18-core-upstream-sync-084c9e2.md` §9,
   `forgotten-land/15-host-migration-log.md` §3, `forgotten-land/10-mass-pull-performance-plan.md`,
   `06-custom-ids.md`, `ai-notes/spell-dbc-equippeditemclass-trap.md`.
-- Doc set: INDEX.md, CLAUDE.md, data_structure.md, functions.md, log.md (newest first), todo.md.
+- Doc set: this CLAUDE.md; INDEX, data_structure, functions, log (newest first) and todo in share-public
+  `docs/World of Warcraft/module-repos/mod-loot-goblins/`.
